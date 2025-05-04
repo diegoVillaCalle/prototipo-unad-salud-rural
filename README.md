@@ -124,12 +124,7 @@ El principal objetivo es proporcionar atención médica accesible y de calidad a
    - Interfaz intuitiva
    - Feedback visual para el usuario
 
-4. **Optimización y Testing**
-   - Mejoras de rendimiento
-   - Pruebas unitarias
-   - Depuración de errores
-
-## Futuras Integraciones
+## Futuras Integraciones cuando se materializael proyecto a nivel de backend
 
 ### 1. Estándares de Interoperabilidad
 - Implementación de FHIR (Fast Healthcare Interoperability Resources)
@@ -146,7 +141,7 @@ El principal objetivo es proporcionar atención médica accesible y de calidad a
 - Procesamiento de lenguaje natural para el chatbot
 - Análisis predictivo de patrones de salud
 
-### 4. Integración con Dispositivos
+### 4. Integración con Dispositivos cuando el proyecto deje de ser prototipo
 - Conexión con dispositivos IoT médicos
 - Monitoreo remoto de pacientes
 - Captura automática de signos vitales
@@ -167,7 +162,7 @@ El principal objetivo es proporcionar atención médica accesible y de calidad a
 
 ```bash
 # Clonar el repositorio
-git clone [url-del-repositorio]
+git clone https://github.com/diegoVillaCalle/prototipo-unad-salud-rural.git
 
 # Instalar dependencias
 npm install
@@ -205,11 +200,11 @@ src/
 
 ## Licencia
 
-Este proyecto está licenciado bajo [Licencia] - ver el archivo LICENSE.md para detalles.
+Este proyecto universitario que esta prototipado.
 
 ## Contacto
 
-[Información de contacto del equipo de desarrollo]
+Diego Alejandro Villa Calle
 
 ---
 
