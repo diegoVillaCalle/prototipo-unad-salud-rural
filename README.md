@@ -6,7 +6,7 @@ Este sistema es una solución innovadora diseñada para mejorar el acceso a serv
 
 ## Diagrama de Flujo del Sistema
 
-![Diagrama de Flujo del Sistema](docs/images/system-flow-diagram.png)
+![Diagrama de Flujo del Sistema](docs/images/diagramaProyectoIngenieria.jpg)
 
 ### Componentes del Diagrama
 
