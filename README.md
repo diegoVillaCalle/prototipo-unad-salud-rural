@@ -38,6 +38,32 @@ Este sistema es una solución innovadora diseñada para mejorar el acceso a serv
 - Comunicación entre pacientes, IA y médicos a través de una plataforma en la nube
 - Sincronización de datos con entidades de salud para mejorar la atención en futuras consultas
 
+## Capturas de Pantalla del Prototipo
+
+### Versión Web
+
+<div align="center">
+  <h4>Página de Inicio</h4>
+  <img src="./docs/images/inicioWeb.png" alt="Página de Inicio - Versión Web" width="80%">
+  
+  <h4>Diagnóstico</h4>
+  <img src="./docs/images/diagnosticoWeb.png" alt="Página de Diagnóstico - Versión Web" width="80%">
+</div>
+
+### Versión Móvil
+
+<div align="center" style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px;">
+  <div>
+    <h4>Inicio Móvil</h4>
+    <img src="./docs/images/inicioMovile.png" alt="Página de Inicio - Versión Móvil" width="300px">
+  </div>
+  
+  <div>
+    <h4>Registro de Síntomas</h4>
+    <img src="./docs/images/sintomasMovil.png" alt="Registro de Síntomas - Versión Móvil" width="300px">
+  </div>
+</div>
+
 ## Propósito
 
 El principal objetivo es proporcionar atención médica accesible y de calidad a poblaciones en zonas rurales mediante:
