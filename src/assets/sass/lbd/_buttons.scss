@@ -1,0 +1,123 @@
+@use 'variables' as *;
+
+.btn {
+    border-width: $border-thin;
+    background-color: transparent;
+    font-weight: $font-weight-normal;
+    padding: $padding-base-vertical $padding-base-horizontal;
+    font-size: $font-size-base;
+    line-height: 1.42857143;
+    border-radius: $border-radius-base;
+    
+    &:hover,
+    &:focus {
+        outline: 0 !important;
+    }
+}
+
+.btn-primary {
+    color: $white-color;
+    background-color: $primary-color;
+    border-color: $primary-color;
+    
+    &:hover,
+    &:focus {
+        background-color: $primary-states-color;
+        border-color: $primary-states-color;
+    }
+}
+
+.btn-info {
+    color: $white-color;
+    background-color: $info-color;
+    border-color: $info-color;
+    
+    &:hover,
+    &:focus {
+        background-color: $info-states-color;
+        border-color: $info-states-color;
+    }
+}
+
+.btn-success {
+    color: $white-color;
+    background-color: $success-color;
+    border-color: $success-color;
+    
+    &:hover,
+    &:focus {
+        background-color: $success-states-color;
+        border-color: $success-states-color;
+    }
+}
+
+.btn-warning {
+    color: $white-color;
+    background-color: $warning-color;
+    border-color: $warning-color;
+    
+    &:hover,
+    &:focus {
+        background-color: $warning-states-color;
+        border-color: $warning-states-color;
+    }
+}
+
+.btn-danger {
+    color: $white-color;
+    background-color: $danger-color;
+    border-color: $danger-color;
+    
+    &:hover,
+    &:focus {
+        background-color: $danger-states-color;
+        border-color: $danger-states-color;
+    }
+}
+
+.btn-round {
+    border-radius: $border-radius-extreme;
+    padding: $padding-round-vertical $padding-round-horizontal;
+}
+
+.btn-fill {
+    color: $white-color;
+    opacity: 0.9;
+    
+    &:hover,
+    &:focus {
+        opacity: 1;
+    }
+}
+
+.btn-simple {
+    border: 0;
+    padding: $padding-base-vertical $padding-base-horizontal;
+    
+    &.btn-icon {
+        padding: $padding-base-vertical;
+    }
+}
+
+.btn-lg {
+    padding: $padding-large-vertical $padding-large-horizontal;
+    font-size: $font-size-large;
+}
+
+.btn-sm {
+    padding: $padding-small-vertical $padding-small-horizontal;
+    font-size: $font-size-small;
+}
+
+.btn-xs {
+    padding: $padding-xs-vertical $padding-xs-horizontal;
+    font-size: $font-size-small - 1;
+}
+
+.btn-icon {
+    padding: $padding-base-vertical;
+    
+    i {
+        margin-right: 5px;
+    }
+} 

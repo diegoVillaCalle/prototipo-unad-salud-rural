@@ -1,0 +1,204 @@
+@use 'variables' as *;
+
+// Responsive mixins
+@mixin respond-below($breakpoint) {
+    @media (max-width: #{$breakpoint - 1}) {
+        @content;
+    }
+}
+
+@mixin respond-above($breakpoint) {
+    @media (min-width: #{$breakpoint}) {
+        @content;
+    }
+}
+
+// Responsive styles
+@include respond-below(768px) {
+    .main-panel {
+        width: 100%;
+    }
+    
+    .sidebar {
+        display: none;
+        
+        &.show {
+            display: block;
+            transform: translate3d(0px, 0, 0);
+            transition: transform .5s cubic-bezier(0.685, 0.0473, 0.346, 1);
+        }
+    }
+    
+    .navbar {
+        .navbar-toggle {
+            display: block;
+        }
+        
+        .navbar-collapse {
+            &.collapse {
+                display: none !important;
+                
+                &.in {
+                    display: block !important;
+                }
+            }
+        }
+    }
+    
+    .nav-open .main-panel {
+        transform: translate3d(260px, 0, 0);
+    }
+}
+
+// Responsive tables
+@include respond-below(768px) {
+    .table-responsive {
+        width: 100%;
+        margin-bottom: 15px;
+        overflow-y: hidden;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+        border: 1px solid $light-gray;
+        
+        > .table {
+            margin-bottom: 0;
+            
+            > thead,
+            > tbody,
+            > tfoot {
+                > tr {
+                    > th,
+                    > td {
+                        white-space: nowrap;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Responsive cards
+@include respond-below(768px) {
+    .card {
+        .card-stats {
+            text-align: center;
+            
+            .icon-big {
+                width: 100%;
+                text-align: center;
+                margin-bottom: 10px;
+            }
+            
+            .numbers {
+                text-align: center;
+                
+                p {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
+
+// Responsive footer
+@include respond-below(768px) {
+    .footer {
+        nav {
+            display: block;
+            margin-bottom: 5px;
+            float: none;
+        }
+    }
+    
+    .footer-healthcare {
+        .footer-section {
+            margin-bottom: 30px;
+        }
+        
+        .emergency-contact {
+            margin-top: 0;
+        }
+    }
+}
+
+// Responsive forms
+@include respond-below(768px) {
+    .form-horizontal {
+        .control-label {
+            text-align: left;
+            margin-bottom: 10px;
+        }
+    }
+}
+
+// Responsive charts
+@include respond-below(768px) {
+    .ct-chart {
+        .ct-label {
+            font-size: 10px;
+        }
+        
+        .ct-grid {
+            stroke-width: 0.5px;
+        }
+    }
+    
+    .vital-signs-chart,
+    .patient-stats-chart,
+    .medical-history-chart {
+        height: 200px;
+    }
+}
+
+// Healthcare specific responsive styles
+@include respond-below(768px) {
+    .medical-dashboard {
+        .stat-card {
+            margin-bottom: 15px;
+        }
+    }
+    
+    .patient-profile {
+        .profile-header {
+            text-align: center;
+            
+            .profile-image {
+                margin: 0 auto 15px;
+                float: none;
+            }
+            
+            .profile-info {
+                margin-left: 0;
+            }
+        }
+    }
+    
+    .teleconsultation {
+        .video-container {
+            height: 300px;
+        }
+        
+        .chat-container {
+            margin-top: 15px;
+            height: 300px;
+        }
+    }
+}
+
+// Print styles
+@media print {
+    .sidebar,
+    .navbar-toggle,
+    .btn {
+        display: none !important;
+    }
+    
+    .main-panel {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .medical-report {
+        page-break-inside: avoid;
+    }
+} 

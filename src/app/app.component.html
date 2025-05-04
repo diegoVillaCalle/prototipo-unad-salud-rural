@@ -1,0 +1,111 @@
+<!-- Wrapper -->
+<div class="wrapper" [class.nav-closed]="!sidebarVisible">
+    <!-- Overlay para cerrar el menú en móviles -->
+    <div class="sidebar-overlay" (click)="sidebarToggle()"></div>
+    
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h2 class="title">Sistema de Salud Rural</h2>
+            <button type="button" class="sidebar-close" (click)="sidebarToggle()">
+                <i class="pe-7s-close"></i>
+            </button>
+        </div>
+        <div class="sidebar-wrapper">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a routerLink="/home" routerLinkActive="active" class="nav-link">
+                        <i class="pe-7s-home"></i>
+                        <span>Inicio</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/perfil" routerLinkActive="active" class="nav-link">
+                        <i class="pe-7s-user"></i>
+                        <span>Mi Perfil</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/registro" routerLinkActive="active" class="nav-link">
+                        <i class="pe-7s-note2"></i>
+                        <span>Nueva Consulta</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/historial" routerLinkActive="active" class="nav-link">
+                        <i class="pe-7s-clock"></i>
+                        <span>Historial</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/teleconsulta" routerLinkActive="active" class="nav-link">
+                        <i class="pe-7s-video"></i>
+                        <span>Teleconsulta</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Main Panel -->
+    <div class="main-panel">
+        <!-- Navbar -->
+        <nav class="navbar">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" (click)="sidebarToggle()">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand">{{getTitle()}}</a>
+                </div>
+
+                <div class="navbar-right-menu">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a routerLink="/buscar">
+                                <i class="pe-7s-search"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a routerLink="/notificaciones">
+                                <i class="pe-7s-bell"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a routerLink="/perfil">
+                                <i class="pe-7s-user"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" (click)="logout()" class="logout-link">
+                                <i class="pe-7s-power"></i>
+                                <span class="d-none d-md-inline">Cerrar Sesión</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Content -->
+        <div class="content">
+            <div class="container-fluid">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container-fluid">
+                <div class="footer-content">
+                    <span class="copyright">
+                        &copy; {{currentYear}} Sistema Inteligente de Atención en Salud para Zonas Rurales
+                    </span>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>

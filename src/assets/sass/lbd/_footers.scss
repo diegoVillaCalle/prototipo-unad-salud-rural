@@ -1,0 +1,160 @@
+@use 'sass:color';
+@use 'variables' as *;
+
+.footer {
+    background-color: $white-color;
+    line-height: $line-height-general;
+    
+    nav > ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        font-weight: normal;
+        
+        a:not(.btn) {
+            color: $dark-gray;
+            display: block;
+            margin-bottom: 3px;
+            
+            &:hover,
+            &:focus {
+                color: $default-color;
+            }
+        }
+    }
+    
+    .social-area {
+        padding: 15px 0;
+        
+        h5 {
+            padding-bottom: 15px;
+        }
+    }
+    
+    .social-area > a:not(.btn) {
+        color: $dark-gray;
+        display: inline-block;
+        vertical-align: top;
+        padding: $padding-social-a;
+        font-size: $font-size-large-navbar;
+        font-weight: normal;
+        line-height: $line-height-general;
+        text-align: center;
+        
+        &:hover,
+        &:focus {
+            color: $default-color;
+        }
+    }
+    
+    .copyright {
+        color: $default-color;
+        padding: 10px 15px;
+        margin: 10px 3px;
+        line-height: 20px;
+        font-size: 14px;
+    }
+    
+    hr {
+        border-color: $medium-gray;
+    }
+    
+    .title {
+        color: $default-color;
+    }
+    
+    &.footer-default {
+        background-color: $light-blue;
+        
+        .footer-nav {
+            background-color: color.adjust($light-blue, $lightness: -5%);
+        }
+        
+        .social-area > a:not(.btn) {
+            color: $white-color;
+        }
+    }
+}
+
+// Footer específico para el sistema de salud
+.footer-healthcare {
+    background-color: $light-blue;
+    color: $white-color;
+    padding: 40px 0;
+    
+    .footer-section {
+        margin-bottom: 30px;
+        
+        h4 {
+            color: $white-color;
+            font-weight: $font-weight-bold;
+            margin-bottom: 20px;
+        }
+        
+        ul {
+            list-style: none;
+            padding: 0;
+            
+            li {
+                margin-bottom: 10px;
+                
+                a {
+                    color: color.adjust($white-color, $alpha: -0.2);
+                    text-decoration: none;
+                    
+                    &:hover {
+                        color: $white-color;
+                    }
+                }
+            }
+        }
+    }
+    
+    .emergency-contact {
+        background-color: color.adjust($light-blue, $lightness: -5%);
+        padding: 15px;
+        border-radius: $border-radius-base;
+        margin-top: 20px;
+        
+        h5 {
+            color: $white-color;
+            margin-top: 0;
+        }
+        
+        .phone {
+            font-size: 24px;
+            color: $success-color;
+            font-weight: $font-weight-bold;
+        }
+    }
+    
+    .social-links {
+        margin-top: 20px;
+        
+        a {
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            line-height: 35px;
+            text-align: center;
+            background-color: color.adjust($white-color, $alpha: -0.9);
+            border-radius: 50%;
+            margin-right: 10px;
+            color: $white-color;
+            
+            &:hover {
+                background-color: color.adjust($white-color, $alpha: -0.8);
+            }
+        }
+    }
+    
+    .footer-bottom {
+        margin-top: 40px;
+        padding-top: 20px;
+        border-top: 1px solid color.adjust($white-color, $alpha: -0.9);
+        
+        .copyright {
+            color: color.adjust($white-color, $alpha: -0.2);
+        }
+    }
+} 

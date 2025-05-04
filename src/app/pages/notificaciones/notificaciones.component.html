@@ -1,0 +1,43 @@
+<div class="notifications-container">
+  <div class="notifications-header">
+    <h2>Notificaciones</h2>
+    <div class="notifications-count" *ngIf="getUnreadCount() > 0">
+      {{ getUnreadCount() }} sin leer
+    </div>
+  </div>
+
+  <div class="notifications-list">
+    <div class="notification-item" 
+         *ngFor="let notification of notifications"
+         [class.unread]="!notification.read"
+         [class.info]="notification.type === 'info'"
+         [class.warning]="notification.type === 'warning'"
+         [class.success]="notification.type === 'success'"
+         [class.danger]="notification.type === 'danger'">
+      
+      <div class="notification-icon">
+        <i class="pe-7s-info" *ngIf="notification.type === 'info'"></i>
+        <i class="pe-7s-attention" *ngIf="notification.type === 'warning'"></i>
+        <i class="pe-7s-check" *ngIf="notification.type === 'success'"></i>
+        <i class="pe-7s-close-circle" *ngIf="notification.type === 'danger'"></i>
+      </div>
+
+      <div class="notification-content" (click)="markAsRead(notification)">
+        <div class="notification-header">
+          <h4>{{ notification.title }}</h4>
+          <span class="notification-time">{{ notification.date | date:'shortTime' }}</span>
+        </div>
+        <p>{{ notification.message }}</p>
+      </div>
+
+      <button class="notification-delete" (click)="deleteNotification(notification.id)">
+        <i class="pe-7s-trash"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="no-notifications" *ngIf="notifications.length === 0">
+    <i class="pe-7s-bell"></i>
+    <p>No tienes notificaciones</p>
+  </div>
+</div> 

@@ -1,0 +1,22 @@
+@use '../variables' as *;
+
+.card-plain {
+    background-color: transparent;
+    box-shadow: none;
+    border-radius: 0;
+    
+    .card-header {
+        background-color: transparent;
+        border-bottom: none;
+    }
+    
+    .card-body {
+        padding: 15px 0;
+    }
+    
+    .card-footer {
+        background-color: transparent;
+        border-top: none;
+        padding: 15px 0;
+    }
+} 

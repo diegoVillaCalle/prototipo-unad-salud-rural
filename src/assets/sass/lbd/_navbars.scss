@@ -1,0 +1,252 @@
+@use 'sass:color';
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.navbar {
+    border: $none;
+    border-radius: 0;
+    padding: 0;
+    margin-bottom: 0;
+    
+    &.navbar-default {
+        background-color: $white-color;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+        
+        .navbar-brand {
+            color: $default-color;
+            font-weight: $font-weight-normal;
+            font-size: $font-size-large-navbar;
+            line-height: 30px;
+            padding: 15px;
+        }
+        
+        .navbar-nav {
+            > li > a {
+                color: $default-color;
+                padding: 15px;
+                margin: 0;
+                position: relative;
+                
+                i {
+                    font-size: 20px;
+                }
+                
+                &:hover,
+                &:focus {
+                    color: $info-color;
+                    background: transparent;
+                }
+            }
+            
+            > .active > a {
+                &,
+                &:hover,
+                &:focus {
+                    color: $info-color;
+                    background-color: transparent;
+                }
+            }
+        }
+        
+        .navbar-toggle {
+            margin: 10px 15px 10px 0;
+            width: 40px;
+            height: 40px;
+            
+            .icon-bar {
+                width: 24px;
+                height: 3px;
+                background-color: #333;
+                display: block;
+                position: relative;
+                transition: all 400ms ease-in-out;
+                
+                & + .icon-bar {
+                    margin-top: 4px;
+                }
+            }
+            
+            &.toggled {
+                .icon-bar:nth-child(2) {
+                    transform: rotate(45deg);
+                    transform-origin: 10% 10%;
+                }
+                
+                .icon-bar:nth-child(3) {
+                    opacity: 0;
+                }
+                
+                .icon-bar:nth-child(4) {
+                    transform: rotate(-45deg);
+                    transform-origin: 10% 90%;
+                }
+            }
+            
+            &:hover,
+            &:focus {
+                background-color: transparent;
+            }
+        }
+    }
+    
+    .navbar-nav {
+        > li > a.btn {
+            margin: 15px 3px;
+            padding: 8px 16px;
+        }
+        
+        > li > a.btn-round {
+            margin: 16px 3px;
+        }
+    }
+    
+    &.navbar-fixed {
+        position: fixed;
+        width: calc(100% - 260px);
+        right: 0;
+        z-index: 1030;
+        
+        .navbar-toggle {
+            position: relative;
+            right: 0;
+            margin-right: 15px;
+        }
+    }
+}
+
+.navbar-transparent {
+    padding-top: 15px;
+    background-color: transparent;
+    border-bottom: 1px solid transparent;
+    
+    .navbar-brand,
+    .navbar-nav > li > a {
+        color: $white-color;
+        
+        &:hover,
+        &:focus {
+            color: color.adjust($white-color, $alpha: -0.2);
+        }
+    }
+}
+
+// Navbar específico para el sistema de salud
+.navbar-healthcare {
+    background-color: $light-blue;
+    border-bottom: 2px solid color.adjust($light-blue, $lightness: -10%);
+    
+    .navbar-brand {
+        color: $white-color;
+        
+        i {
+            color: $success-color;
+            margin-right: 5px;
+        }
+    }
+    
+    .navbar-nav {
+        > li > a {
+            color: $white-color;
+            
+            &:hover,
+            &:focus {
+                color: $success-color;
+            }
+            
+            i {
+                font-size: 18px;
+                margin-right: 5px;
+            }
+        }
+    }
+    
+    .notification-badge {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        background-color: $danger-color;
+        color: $white-color;
+        border-radius: 50%;
+        padding: 3px 6px;
+        font-size: 10px;
+    }
+    
+    // Menú de usuario
+    .user-menu {
+        .dropdown-menu {
+            background-color: $white-color;
+            border-radius: $border-radius-base;
+            box-shadow: 0 2px 5px color.adjust($black-color, $alpha: -0.9);
+            
+            > li > a {
+                padding: 10px 20px;
+                color: $default-color;
+                
+                i {
+                    margin-right: 10px;
+                }
+                
+                &:hover {
+                    background-color: $light-gray;
+                }
+            }
+        }
+    }
+}
+
+// Estilos para el menú móvil
+@media (max-width: 991px) {
+    .navbar-collapse {
+        position: fixed;
+        display: block;
+        top: 0;
+        height: 100vh;
+        width: 230px;
+        right: 0;
+        margin-right: 0 !important;
+        z-index: 1032;
+        visibility: visible;
+        background-color: #fff;
+        overflow-y: visible;
+        border-top: none;
+        text-align: left;
+        padding-right: 0;
+        padding-left: 0;
+        transform: translate3d(230px, 0, 0);
+        transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
+        
+        .nav {
+            > li {
+                border-bottom: 1px solid rgba(0,0,0,0.1);
+                
+                > a {
+                    padding: 15px;
+                    color: #333;
+                    
+                    i {
+                        margin-right: 15px;
+                    }
+                    
+                    p {
+                        display: inline-block;
+                        margin: 0;
+                    }
+                }
+            }
+        }
+    }
+    
+    html.nav-open {
+        .navbar-collapse {
+            transform: translate3d(0px, 0, 0);
+        }
+        
+        .wrapper {
+            transform: translate3d(-230px, 0, 0);
+        }
+    }
+    
+    .wrapper {
+        transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
+    }
+} 

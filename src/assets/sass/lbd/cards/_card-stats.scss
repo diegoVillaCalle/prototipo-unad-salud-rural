@@ -1,0 +1,63 @@
+@use '../variables' as *;
+
+.card-stats {
+    .card-header {
+        padding: 15px 15px 0;
+        
+        .icon-big {
+            font-size: 3em;
+            min-height: 64px;
+            
+            i {
+                line-height: 59px;
+            }
+        }
+    }
+    
+    .card-body {
+        padding: 15px 15px 0;
+        
+        .numbers {
+            font-size: 2em;
+            text-align: right;
+            
+            p {
+                margin: 0;
+                font-size: 16px;
+                color: $dark-gray;
+            }
+        }
+    }
+    
+    .card-footer {
+        padding: 0 15px 15px;
+        
+        hr {
+            margin-top: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .stats {
+            color: $dark-gray;
+            
+            i {
+                margin-right: 5px;
+                margin-left: 5px;
+                color: $default-states-color;
+            }
+        }
+    }
+    
+    .icon-success {
+        color: $success-color;
+    }
+    .icon-info {
+        color: $info-color;
+    }
+    .icon-warning {
+        color: $warning-color;
+    }
+    .icon-danger {
+        color: $danger-color;
+    }
+} 

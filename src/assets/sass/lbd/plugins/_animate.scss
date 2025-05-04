@@ -1,0 +1,172 @@
+@use 'sass:color';
+@use '../variables' as *;
+
+// Animaciones para el sistema de salud
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+// Clases de utilidad para animaciones
+.animated {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+.fadeIn {
+    animation-name: fadeIn;
+}
+
+.slideInRight {
+    animation-name: slideInRight;
+}
+
+.slideInLeft {
+    animation-name: slideInLeft;
+}
+
+.pulse {
+    animation-name: pulse;
+}
+
+// Duraciones
+.animated {
+    &.fast {
+        animation-duration: 0.5s;
+    }
+    
+    &.slow {
+        animation-duration: 2s;
+    }
+}
+
+// Animaciones específicas para componentes de salud
+.vital-sign-alert {
+    animation: pulse 2s infinite;
+}
+
+.notification-enter {
+    animation: slideInRight 0.3s ease-out;
+}
+
+.page-transition {
+    animation: fadeIn 0.5s ease-out;
+}
+
+.emergency-alert {
+    animation: pulse 1s infinite;
+    color: $danger-color;
+}
+
+@keyframes shake {
+    0%, 100% {transform: translate3d(0, 0, 0);}
+    10%, 30%, 50%, 70%, 90% {transform: translate3d(-10px, 0, 0);}
+    20%, 40%, 60%, 80% {transform: translate3d(10px, 0, 0);}
+}
+
+.shake {
+    animation-name: shake;
+}
+
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, -100%, 0);
+    }
+    100% {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.fadeInDown {
+    animation-name: fadeInDown;
+}
+
+@keyframes fadeOut {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+.fadeOut {
+    animation-name: fadeOut;
+}
+
+@keyframes fadeOutUp {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translate3d(0, -100%, 0);
+    }
+}
+
+.fadeOutUp {
+    animation-name: fadeOutUp;
+}
+
+@keyframes fadeOutDown {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translate3d(0, 100%, 0);
+    }
+}
+
+.fadeOutDown {
+    animation-name: fadeOutDown;
+}
+
+@keyframes errorShake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-5px);
+    }
+    20%, 40%, 60%, 80% {
+        transform: translateX(5px);
+    }
+}
+
+.error-state {
+    animation: errorShake 0.5s;
+    color: $danger-color;
+} 

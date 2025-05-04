@@ -1,0 +1,42 @@
+@font-face {
+    font-family: 'Pe-icon-7-stroke';
+    src: url('https://d1azc1qln24ryf.cloudfront.net/114779/Socicon/Pe-icon-7-stroke.eot?d7yf1v');
+    src: url('https://d1azc1qln24ryf.cloudfront.net/114779/Socicon/Pe-icon-7-stroke.eot?#iefixd7yf1v') format('embedded-opentype'),
+         url('https://d1azc1qln24ryf.cloudfront.net/114779/Socicon/Pe-icon-7-stroke.woff?d7yf1v') format('woff'),
+         url('https://d1azc1qln24ryf.cloudfront.net/114779/Socicon/Pe-icon-7-stroke.ttf?d7yf1v') format('truetype'),
+         url('https://d1azc1qln24ryf.cloudfront.net/114779/Socicon/Pe-icon-7-stroke.svg?d7yf1v#Pe-icon-7-stroke') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="pe-7s-"], [class*=" pe-7s-"] {
+    display: inline-block;
+    font-family: 'Pe-icon-7-stroke';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.pe-7s-graph:before {
+    content: "\e629";
+}
+.pe-7s-user:before {
+    content: "\e605";
+}
+.pe-7s-note2:before {
+    content: "\e69d";
+}
+.pe-7s-bell:before {
+    content: "\e615";
+}
+.pe-7s-video:before {
+    content: "\e604";
+}
+.pe-7s-search:before {
+    content: "\e618";
+} 

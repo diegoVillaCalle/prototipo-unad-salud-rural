@@ -1,0 +1,44 @@
+/* Reglas para tablets y móviles */
+@media (max-width: 991px), (max-width: 767px) {
+    .sidebar,
+    .bootstrap-navbar {
+        position: fixed !important;
+        display: block !important;
+        top: 0 !important;
+        height: 100% !important;
+        left: 0 !important;
+        right: auto !important;
+        transform: none !important;
+        visibility: visible !important;
+        z-index: 1032 !important;
+        background-color: #2196F3 !important;
+        overflow-y: visible !important;
+        border-top: none !important;
+        text-align: left !important;
+        padding: 0 !important;
+        width: 260px !important;
+        transition: transform 0.3s ease !important;
+    }
+
+    .nav-closed .sidebar {
+        transform: translateX(-260px) !important;
+    }
+
+    .main-panel {
+        width: 100% !important;
+        margin-left: 260px !important;
+        transition: margin-left 0.3s ease !important;
+    }
+
+    .nav-closed .main-panel {
+        margin-left: 0 !important;
+    }
+
+    /* Asegurar que el contenido del sidebar sea visible */
+    .sidebar-wrapper {
+        display: block !important;
+        visibility: visible !important;
+        height: calc(100vh - 75px) !important;
+        overflow-y: auto !important;
+    }
+} 

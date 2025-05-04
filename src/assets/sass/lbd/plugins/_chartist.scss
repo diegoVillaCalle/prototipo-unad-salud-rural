@@ -1,0 +1,161 @@
+@use '../variables' as *;
+
+// Estilos base de Chartist
+.ct-chart {
+    .ct-label {
+        fill: $dark-gray;
+        color: $dark-gray;
+        font-size: 12px;
+        line-height: 1;
+    }
+    
+    .ct-grid {
+        stroke: rgba($black-color, 0.1);
+        stroke-width: 1px;
+        stroke-dasharray: 2px;
+    }
+    
+    .ct-point {
+        stroke-width: 8px;
+        stroke-linecap: round;
+    }
+    
+    .ct-line {
+        fill: none;
+        stroke-width: 3px;
+    }
+    
+    .ct-area {
+        stroke: none;
+        fill-opacity: 0.1;
+    }
+    
+    .ct-bar {
+        fill: none;
+        stroke-width: 10px;
+    }
+}
+
+// Colores para gráficos de salud
+.ct-series {
+    &-a {
+        .ct-point,
+        .ct-line,
+        .ct-bar,
+        .ct-slice-donut {
+            stroke: $info-color;
+        }
+        
+        .ct-slice-pie,
+        .ct-area {
+            fill: $info-color;
+        }
+    }
+    
+    &-b {
+        .ct-point,
+        .ct-line,
+        .ct-bar,
+        .ct-slice-donut {
+            stroke: $success-color;
+        }
+        
+        .ct-slice-pie,
+        .ct-area {
+            fill: $success-color;
+        }
+    }
+    
+    &-c {
+        .ct-point,
+        .ct-line,
+        .ct-bar,
+        .ct-slice-donut {
+            stroke: $warning-color;
+        }
+        
+        .ct-slice-pie,
+        .ct-area {
+            fill: $warning-color;
+        }
+    }
+    
+    &-d {
+        .ct-point,
+        .ct-line,
+        .ct-bar,
+        .ct-slice-donut {
+            stroke: $danger-color;
+        }
+        
+        .ct-slice-pie,
+        .ct-area {
+            fill: $danger-color;
+        }
+    }
+}
+
+// Estilos específicos para gráficos de salud
+.vital-signs-chart {
+    height: 300px;
+    
+    .ct-point {
+        stroke-width: 6px;
+    }
+    
+    .ct-line {
+        stroke-width: 2px;
+    }
+    
+    .ct-area {
+        fill-opacity: 0.05;
+    }
+}
+
+.patient-stats-chart {
+    height: 250px;
+    
+    .ct-bar {
+        stroke-width: 20px;
+    }
+}
+
+.medical-history-chart {
+    height: 200px;
+    
+    .ct-label {
+        font-size: 14px;
+    }
+}
+
+// Tooltips personalizados
+.chartist-tooltip {
+    position: absolute;
+    display: inline-block;
+    opacity: 0;
+    min-width: 50px;
+    padding: 5px 10px;
+    background: $dark-gray;
+    color: $white-color;
+    font-size: 12px;
+    border-radius: 3px;
+    pointer-events: none;
+    z-index: 1;
+    transition: opacity .2s linear;
+    
+    &.tooltip-show {
+        opacity: 1;
+    }
+    
+    &:before {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 0;
+        border: 5px solid transparent;
+        border-top-color: $dark-gray;
+    }
+} 

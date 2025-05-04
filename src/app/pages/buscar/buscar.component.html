@@ -1,0 +1,37 @@
+<div class="search-container">
+  <div class="search-header">
+    <h2>Búsqueda</h2>
+    <div class="search-input-container">
+      <i class="pe-7s-search"></i>
+      <input type="text" 
+             [formControl]="searchControl" 
+             class="search-input" 
+             placeholder="Buscar consultas, medicamentos, doctores...">
+      <div class="spinner-border spinner-border-sm" *ngIf="loading"></div>
+    </div>
+  </div>
+
+  <div class="search-results" *ngIf="results.length > 0">
+    <div class="result-item" *ngFor="let item of results">
+      <div class="result-icon">
+        <i class="pe-7s-note2" *ngIf="item.type === 'consulta'"></i>
+        <i class="pe-7s-medicine" *ngIf="item.type === 'medicamento'"></i>
+        <i class="pe-7s-user-female" *ngIf="item.type === 'doctor'"></i>
+      </div>
+      <div class="result-content">
+        <h4>{{ item.title }}</h4>
+        <p>{{ item.description }}</p>
+      </div>
+      <div class="result-action">
+        <button class="btn btn-link">
+          <i class="pe-7s-angle-right"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="no-results" *ngIf="searchControl.value && results.length === 0 && !loading">
+    <i class="pe-7s-info"></i>
+    <p>No se encontraron resultados para tu búsqueda</p>
+  </div>
+</div> 

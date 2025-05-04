@@ -1,0 +1,103 @@
+<div class="resultado-container">
+  <div *ngIf="loading" class="loading-state">
+    <div class="spinner-border text-primary" role="status">
+      <span class="sr-only">Cargando...</span>
+    </div>
+    <p>Analizando síntomas y generando diagnóstico...</p>
+  </div>
+
+  <div *ngIf="error" class="error-state">
+    <i class="pe-7s-close-circle"></i>
+    <h3>Error</h3>
+    <p>{{ error }}</p>
+    <button class="btn btn-primary" routerLink="/registro">Intentar nuevamente</button>
+  </div>
+
+  <div *ngIf="!loading && !error && consultation" class="resultado-content">
+    <div class="resultado-header">
+      <h2>Resultado del Diagnóstico</h2>
+      <p class="fecha">{{ consultation.date | date:'dd/MM/yyyy HH:mm' }}</p>
+    </div>
+
+    <div class="diagnosis-card">
+      <div class="severity-badge" [class]="getSeverityClass(consultation.diagnosis.severity)">
+        {{ consultation.diagnosis.severity | uppercase }}
+      </div>
+
+      <h3>{{ consultation.diagnosis.condition }}</h3>
+
+      <div class="vital-signs">
+        <h4>Signos Vitales Registrados:</h4>
+        <div class="vital-signs-grid">
+          <div class="vital-sign">
+            <span class="label">Temperatura</span>
+            <span class="value">{{ consultation.vitalSigns.temperature }}°C</span>
+          </div>
+          <div class="vital-sign">
+            <span class="label">Presión Arterial</span>
+            <span class="value">{{ consultation.vitalSigns.bloodPressure.systolic }}/{{ consultation.vitalSigns.bloodPressure.diastolic }}</span>
+          </div>
+          <div class="vital-sign">
+            <span class="label">Frecuencia Cardíaca</span>
+            <span class="value">{{ consultation.vitalSigns.heartRate }} lpm</span>
+          </div>
+          <div class="vital-sign">
+            <span class="label">Saturación O₂</span>
+            <span class="value">{{ consultation.vitalSigns.oxygenSaturation }}%</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="symptoms-summary">
+        <h4>Síntomas Reportados:</h4>
+        <div class="symptoms-list">
+          <span class="symptom-tag" *ngFor="let symptom of consultation.symptoms.description">
+            {{ symptom }}
+          </span>
+        </div>
+        <p class="symptom-duration">
+          <strong>Duración:</strong> {{ consultation.symptoms.duration }}
+        </p>
+        <p class="symptom-intensity">
+          <strong>Intensidad:</strong> {{ consultation.symptoms.intensity }}/10
+        </p>
+      </div>
+
+      <div class="recommendations">
+        <h4>Recomendaciones:</h4>
+        <ul>
+          <li *ngFor="let recommendation of consultation.diagnosis.recommendations">
+            {{ recommendation }}
+          </li>
+        </ul>
+      </div>
+
+      <div class="action-buttons" [ngSwitch]="consultation.diagnosis.severity">
+        <ng-container *ngSwitchCase="'critical'">
+          <button class="btn btn-danger btn-lg btn-block" (click)="goToEmergency()">
+            <i class="pe-7s-call"></i>
+            Contactar Servicios de Emergencia
+          </button>
+        </ng-container>
+
+        <ng-container *ngSwitchCase="'high'">
+          <button class="btn btn-warning btn-lg btn-block" (click)="startTeleconsultation()">
+            <i class="pe-7s-video"></i>
+            Iniciar Teleconsulta Urgente
+          </button>
+        </ng-container>
+
+        <ng-container *ngSwitchCase="'medium'">
+          <button class="btn btn-primary btn-lg btn-block" (click)="startTeleconsultation()">
+            <i class="pe-7s-video"></i>
+            Programar Teleconsulta
+          </button>
+        </ng-container>
+
+        <button class="btn btn-outline-primary btn-block mt-3" routerLink="/historial">
+          Ver Historial Médico
+        </button>
+      </div>
+    </div>
+  </div>
+</div> 

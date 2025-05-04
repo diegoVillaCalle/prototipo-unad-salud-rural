@@ -1,0 +1,75 @@
+@use 'variables' as *;
+
+/*     General overwrite     */
+body{
+    color: $font-color;
+    font-size: $font-size-base;
+    font-family: 'Roboto', "Helvetica", Arial, sans-serif;
+}
+
+a{
+  color: $info-color;
+
+  &:hover, &:focus{
+     color: $info-states-color;
+     text-decoration: none;
+  }
+}
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4{
+    font-weight: $font-weight-normal;
+    margin: $margin-base 0 0;
+}
+
+h1, .h1 {
+    font-size: $font-size-h1;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+h2, .h2{
+    font-size: $font-size-h2;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+h3, .h3{
+    font-size: $font-size-h3;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+h4, .h4{
+    font-size: $font-size-h4;
+    line-height: 30px;
+}
+h5, .h5 {
+    font-size: $font-size-h5;
+    margin-bottom: 15px;
+}
+h6, .h6{
+    font-size: $font-size-h6;
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+}
+
+p{
+    font-size: $font-paragraph;
+    line-height: $line-height-general;
+}
+
+.text-muted{
+    color: #9A9A9A;
+}
+.text-primary, .text-primary:hover{
+    color: #1D62F0 !important;
+}
+.text-info, .text-info:hover{
+    color: $info-color !important;
+}
+.text-success, .text-success:hover{
+    color: $success-color !important;
+}
+.text-warning, .text-warning:hover{
+    color: $warning-color !important;
+}
+.text-danger, .text-danger:hover{
+    color: $danger-color !important;
+} 

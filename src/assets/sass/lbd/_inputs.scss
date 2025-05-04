@@ -1,0 +1,96 @@
+@use 'variables' as *;
+
+.form-control {
+    background-color: $white-bg;
+    border: 1px solid $light-gray;
+    border-radius: $border-radius-base;
+    color: $font-color;
+    font-size: $font-size-base;
+    padding: $padding-base-vertical $padding-base-horizontal;
+    height: 40px;
+    box-shadow: none;
+    
+    &:focus {
+        border: 1px solid $medium-dark-gray;
+        box-shadow: none;
+        outline: 0 !important;
+    }
+    
+    &.error {
+        border-color: $danger-color;
+    }
+}
+
+textarea.form-control {
+    max-height: 200px;
+    resize: vertical;
+}
+
+.input-group {
+    .form-control {
+        &:first-child {
+            border-right: 0;
+        }
+        &:last-child {
+            border-left: 0;
+        }
+    }
+    
+    .input-group-addon {
+        border: 1px solid $light-gray;
+        border-radius: $border-radius-base;
+        padding: 6px 12px;
+        background-color: $white-bg;
+        
+        &:first-child {
+            border-right: 0;
+        }
+        &:last-child {
+            border-left: 0;
+        }
+    }
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-control-feedback {
+    margin-top: 6px;
+    font-size: 13px;
+    color: $medium-dark-gray;
+}
+
+.has-success {
+    .form-control {
+        border-color: $success-color;
+    }
+    .form-control-feedback {
+        color: $success-color;
+    }
+}
+
+.has-error {
+    .form-control {
+        border-color: $danger-color;
+    }
+    .form-control-feedback {
+        color: $danger-color;
+    }
+}
+
+.input-lg {
+    height: 46px;
+    padding: 10px 16px;
+    font-size: 18px;
+    line-height: 1.3333333;
+    border-radius: $border-radius-large;
+}
+
+.input-sm {
+    height: 30px;
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: $border-radius-small;
+} 

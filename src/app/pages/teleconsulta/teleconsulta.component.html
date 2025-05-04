@@ -1,0 +1,95 @@
+<div class="teleconsulta-container">
+  <!-- Loading State -->
+  <div *ngIf="loading" class="loading-state">
+    <div class="spinner-border text-primary" role="status">
+      <span class="sr-only">Conectando...</span>
+    </div>
+    <p>Estableciendo conexión con el médico...</p>
+  </div>
+
+  <!-- Error State -->
+  <div *ngIf="error" class="error-state">
+    <i class="pe-7s-close-circle"></i>
+    <h3>Error de conexión</h3>
+    <p>{{ error }}</p>
+    <button class="btn btn-primary" routerLink="/home">Volver al inicio</button>
+  </div>
+
+  <!-- Main Content -->
+  <div *ngIf="!loading && !error" class="teleconsulta-content">
+    <!-- Video Call Section -->
+    <div class="video-container">
+      <!-- Doctor's Video -->
+      <div class="main-video" [class.video-disabled]="!videoEnabled">
+        <div class="video-placeholder doctor">
+          <img *ngIf="!videoEnabled" src="assets/images/doctor-avatar.png" alt="Doctor">
+          <div class="participant-info">
+            <span class="name">{{ mockDoctor.name }}</span>
+            <span class="specialty">{{ mockDoctor.specialty }}</span>
+            <span class="status" [class.online]="mockDoctor.status === 'online'">
+              {{ mockDoctor.status }}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Patient's Video (Small) -->
+      <div class="self-video" [class.video-disabled]="!videoEnabled">
+        <div class="video-placeholder patient">
+          <img *ngIf="!videoEnabled" src="assets/images/patient-avatar.png" alt="You">
+          <span class="name">Tú</span>
+        </div>
+      </div>
+
+      <!-- Video Controls -->
+      <div class="video-controls">
+        <button class="control-btn" [class.disabled]="!audioEnabled" (click)="toggleAudio()">
+          <i class="pe-7s-mic" *ngIf="audioEnabled"></i>
+          <i class="pe-7s-mic-off" *ngIf="!audioEnabled"></i>
+        </button>
+        <button class="control-btn" [class.disabled]="!videoEnabled" (click)="toggleVideo()">
+          <i class="pe-7s-video" *ngIf="videoEnabled"></i>
+          <i class="pe-7s-video-off" *ngIf="!videoEnabled"></i>
+        </button>
+        <button class="control-btn chat" (click)="toggleChat()">
+          <i class="pe-7s-chat"></i>
+        </button>
+        <button class="control-btn end-call" (click)="endCall()">
+          <i class="pe-7s-call"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Chat Section -->
+    <div class="chat-container" [class.open]="chatOpen">
+      <div class="chat-header">
+        <h3>Chat de la consulta</h3>
+        <button class="close-chat" (click)="toggleChat()">
+          <i class="pe-7s-close"></i>
+        </button>
+      </div>
+
+      <div class="chat-messages">
+        <div *ngFor="let message of chatMessages" 
+             class="message" 
+             [class.sent]="message.sender === 'patient'"
+             [class.received]="message.sender === 'doctor'">
+          <div class="message-content">
+            <p>{{ message.message }}</p>
+            <span class="timestamp">{{ message.timestamp | date:'HH:mm' }}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="chat-input">
+        <input type="text" 
+               [(ngModel)]="newMessage" 
+               placeholder="Escribe un mensaje..."
+               (keyup.enter)="sendMessage()">
+        <button (click)="sendMessage()" [disabled]="!newMessage.trim()">
+          <i class="pe-7s-paper-plane"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div> 

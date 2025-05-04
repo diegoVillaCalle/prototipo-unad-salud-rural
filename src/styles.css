@@ -1,0 +1,99 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Base styles */
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f4f3ef;
+}
+
+.wrapper {
+    position: relative;
+    top: 0;
+    height: 100vh;
+}
+
+.wrapper:after {
+    display: table;
+    clear: both;
+    content: " ";
+}
+
+a {
+    color: #1DC7EA;
+}
+
+a:hover, a:focus {
+    color: #42d0ed;
+    text-decoration: none;
+}
+
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus {
+    outline: 0;
+}
+
+.btn {
+    border-width: 2px;
+    background-color: transparent;
+    font-weight: 400;
+    opacity: 0.8;
+    padding: 8px 16px;
+}
+
+.btn:hover,
+.btn:focus {
+    opacity: 1;
+    outline: 0 !important;
+    box-shadow: none;
+}
+
+.btn.btn-icon {
+    padding: 8px;
+}
+
+.container-fluid {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.row {
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+/* Perfect Scrollbar */
+.ps {
+    overflow: hidden !important;
+    overflow-anchor: none;
+    -ms-overflow-style: none;
+    touch-action: auto;
+    -ms-touch-action: auto;
+}
+
+/* Utility classes */
+.pull-right {
+    float: right;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Animations */
+.fade {
+    opacity: 0;
+    transition: opacity .15s linear;
+}
+
+.fade.in {
+    opacity: 1;
+}

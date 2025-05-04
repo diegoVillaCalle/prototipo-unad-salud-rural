@@ -1,0 +1,93 @@
+@use 'variables' as *;
+
+.table {
+    > thead > tr > th {
+        border-bottom-width: 1px;
+        font-size: $font-size-small;
+        font-weight: $font-weight-light;
+        padding: 12px 8px;
+        vertical-align: middle;
+    }
+
+    > tbody > tr > td {
+        padding: 8px;
+        vertical-align: middle;
+    }
+
+    > thead > tr > th,
+    > tbody > tr > td {
+        border-color: $light-gray;
+    }
+
+    .td-actions {
+        min-width: 100px;
+        
+        .btn {
+            padding: 5px;
+            margin: 0 2px;
+            
+            i {
+                font-size: 18px;
+            }
+        }
+    }
+}
+
+// Tablas específicas para el sistema de salud
+.table-patients {
+    tr {
+        &.critical {
+            background-color: rgba($danger-color, 0.1);
+        }
+        
+        &.attention-needed {
+            background-color: rgba($warning-color, 0.1);
+        }
+        
+        &.stable {
+            background-color: rgba($success-color, 0.1);
+        }
+    }
+}
+
+.table-appointments {
+    .status-pending {
+        color: $warning-color;
+    }
+    
+    .status-confirmed {
+        color: $success-color;
+    }
+    
+    .status-cancelled {
+        color: $danger-color;
+    }
+}
+
+.table-medical-history {
+    th {
+        background-color: $light-blue;
+        color: $white-color;
+    }
+    
+    .diagnosis {
+        font-weight: $font-weight-bold;
+    }
+    
+    .treatment {
+        color: $info-color;
+    }
+}
+
+// Responsive tables
+.table-responsive {
+    overflow-x: auto;
+    min-height: 0.01%; // Fix for IE9 bug
+    
+    @media screen and (max-width: 767px) {
+        width: 100%;
+        margin-bottom: 15px;
+        border: 1px solid $light-gray;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+    }
+} 

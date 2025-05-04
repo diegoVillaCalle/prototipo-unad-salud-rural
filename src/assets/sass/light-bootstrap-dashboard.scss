@@ -1,0 +1,36 @@
+/*!
+ * Sistema Inteligente de Atención en Salud para Zonas Rurales v1.0.0
+ */
+
+@use 'sass:color';
+
+// Variables y Mixins
+@use 'lbd/variables';
+@use 'lbd/mixins';
+
+// Core CSS
+@use 'lbd/typography';
+@use 'lbd/misc';
+@use 'lbd/sidebar-and-main-panel';
+@use 'lbd/buttons';
+@use 'lbd/inputs';
+
+// Componentes
+@use 'lbd/alerts';
+@use 'lbd/tables';
+@use 'lbd/checkbox-radio-switch';
+@use 'lbd/navbars';
+@use 'lbd/footers';
+
+// Cards
+@use 'lbd/cards';
+@use 'lbd/cards/card-plain';
+@use 'lbd/cards/card-stats';
+
+// Plugins
+@use 'lbd/plugins/animate';
+@use 'lbd/plugins/chartist';
+@use 'lbd/plugins/perfect-scrollbar';
+
+// Estructura
+@use 'lbd/responsive'; 

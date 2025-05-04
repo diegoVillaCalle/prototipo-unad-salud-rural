@@ -1,0 +1,148 @@
+@use 'variables' as *;
+
+// Checkbox & Radio
+.checkbox,
+.radio {
+    margin-bottom: 12px;
+    padding-left: 32px;
+    position: relative;
+    margin-top: 0;
+    
+    label {
+        display: inline-block;
+        position: relative;
+        vertical-align: middle;
+        padding-left: 5px;
+        line-height: 25px;
+        min-height: 25px;
+        font-size: 14px;
+        font-weight: normal;
+        
+        &::before,
+        &::after {
+            content: " ";
+            display: inline-block;
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            left: 0;
+            cursor: pointer;
+            border-radius: 3px;
+            top: 0;
+            background-color: $white-color;
+            border: 1px solid $light-gray;
+            transition: opacity 0.3s linear;
+        }
+    }
+}
+
+.checkbox {
+    input[type="checkbox"] {
+        opacity: 0;
+        position: absolute;
+        visibility: hidden;
+        
+        &:checked + label::after {
+            font-family: 'FontAwesome';
+            content: "\f00c";
+            top: -2px;
+            position: absolute;
+            left: 3px;
+            font-size: 15px;
+            color: $info-color;
+        }
+    }
+}
+
+.radio {
+    label {
+        &::before,
+        &::after {
+            border-radius: 50%;
+        }
+        
+        &::after {
+            background-color: $info-color;
+            transform: scale(0);
+            transition: transform 0.1s cubic-bezier(0.4, 0, 1, 1);
+        }
+    }
+    
+    input[type="radio"] {
+        opacity: 0;
+        position: absolute;
+        visibility: hidden;
+        
+        &:checked + label::after {
+            transform: scale(0.5);
+        }
+    }
+}
+
+// Switch
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    margin-bottom: 0;
+    
+    input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+        
+        &:checked + .slider {
+            background-color: $info-color;
+            
+            &:before {
+                transform: translateX(26px);
+            }
+        }
+        
+        &:focus + .slider {
+            box-shadow: 0 0 1px $info-color;
+        }
+    }
+    
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: $light-gray;
+        transition: .4s;
+        border-radius: 34px;
+        
+        &:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: $white-color;
+            transition: .4s;
+            border-radius: 50%;
+        }
+    }
+}
+
+// Estados específicos para el sistema de salud
+.checkbox, .radio {
+    &.medical-consent {
+        border: 1px solid $light-gray;
+        padding: 10px;
+        border-radius: $border-radius-base;
+        background-color: rgba($info-color, 0.05);
+    }
+    
+    &.emergency-contact {
+        border: 1px solid $light-gray;
+        padding: 10px;
+        border-radius: $border-radius-base;
+        background-color: rgba($warning-color, 0.05);
+    }
+} 
