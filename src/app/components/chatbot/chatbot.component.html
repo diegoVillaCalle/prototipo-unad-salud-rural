@@ -1,0 +1,64 @@
+<div class="chatbot-container" [class.minimized]="isMinimized">
+    <!-- Cabecera del Chat -->
+    <div class="chat-header">
+        <div class="header-content">
+            <i class="pe-7s-headphones"></i>
+            <span>Asistente Virtual de Salud</span>
+        </div>
+        <div class="header-actions">
+            <button (click)="toggleChat()" class="action-button">
+                <i [class]="isMinimized ? 'pe-7s-angle-up' : 'pe-7s-angle-down'"></i>
+            </button>
+            <button (click)="endChat()" class="action-button" *ngIf="!isMinimized">
+                <i class="pe-7s-close"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Contenedor de Mensajes -->
+    <div class="chat-messages" #chatContainer *ngIf="!isMinimized">
+        <div *ngFor="let message of messages" 
+             class="message" 
+             [class.user-message]="message.sender === 'user'"
+             [class.bot-message]="message.sender === 'bot'">
+            
+            <div class="message-content">
+                <p>{{message.text}}</p>
+                
+                <!-- Opciones de respuesta -->
+                <div *ngIf="message.type === 'option' && message.options && message.sender === 'bot'" 
+                     class="message-options">
+                    <button *ngFor="let option of message.options"
+                            (click)="selectOption(option)"
+                            class="option-button">
+                        {{option}}
+                    </button>
+                </div>
+            </div>
+            
+            <small class="message-time">
+                {{message.timestamp | date:'shortTime'}}
+            </small>
+        </div>
+
+        <!-- Indicador de escritura -->
+        <div class="typing-indicator" *ngIf="isLoading">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <!-- Input para mensajes -->
+    <div class="chat-input" *ngIf="!isMinimized">
+        <input type="text" 
+               [(ngModel)]="newMessage" 
+               (keyup.enter)="sendMessage()"
+               placeholder="Escribe tu mensaje..."
+               [disabled]="isLoading">
+        <button (click)="sendMessage()" 
+                [disabled]="!newMessage.trim() || isLoading">
+            <i class="pe-7s-paper-plane"></i>
+        </button>
+    </div>
+</div> 

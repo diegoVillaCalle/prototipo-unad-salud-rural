@@ -2,13 +2,14 @@ import { Component, OnInit, Renderer2 } from '@angular/core';
 import { Location, CommonModule } from '@angular/common';
 import { RouterModule, Router } from '@angular/router';
 import { AuthService } from './services/auth.service';
+import { ChatbotComponent } from './components/chatbot/chatbot.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   standalone: true,
-  imports: [CommonModule, RouterModule]
+  imports: [CommonModule, RouterModule, ChatbotComponent]
 })
 export class AppComponent implements OnInit {
   public sidebarVisible = true;
